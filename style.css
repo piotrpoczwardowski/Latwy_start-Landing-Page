@@ -528,6 +528,9 @@ body {
   .modal__text{
     font-size: 20px;
   }
+  .footer__footer{
+    font-size: 10px;
+  }
 }
 @media (max-width: 400px) {
   .modal{
