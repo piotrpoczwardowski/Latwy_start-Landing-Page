@@ -59,6 +59,7 @@
         </form>
       </div>
     </div>
+    
     <div class="content">
       <div class="background">
         <div class="background__image"></div>
@@ -173,8 +174,9 @@
         
       };
       // emailjs.send(serviceID, templateID, templateParams);
-      console.log('ok')
-    
+      body.style.filter = "blur(0px)";
+          modal.style.display = "none";
+window.alert('Wysłano')
           }
         }
       });
@@ -192,12 +194,13 @@
 
       body.addEventListener("click", function() {
         if (blur) {
-          console.log(blur);
+          
         } else {
           body.style.filter = "blur(0px)";
           modal.style.display = "none";
           inputEmail.value = ''
           inputName.value = ''
+          alert.innerText = '';
         }
       });
     </script>
