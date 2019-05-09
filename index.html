@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="https://use.typekit.net/veo0iqc.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" type="image/png" href="./fav.jpg" />
     <title>Projekt Łatwy Start - Załóż firmę za darmo</title>
     <meta
       name="Description"
@@ -18,6 +19,15 @@
     />
     <meta name="”robots”" content="”noindex”" />
     <meta name="”robots”" content="”nofollow”" />
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function() {
+        emailjs.init("user_fj093spmTSYqaMJp4eHn4");
+      })();
+    </script>
   </head>
 
   <body>
@@ -26,22 +36,22 @@
         Witaj! <br />
         Zostaw swój e-mail. Wkrótce odpowiemy
       </div>
+      <div class="alert"></div>
       <div class="modal__form">
-        <form
-          action="https://formspree.io/piotrpoczwardowski@gmail.com"
-          method="POST"
-        >
+        <form>
           <input
+            autocomplete="off"
             type="text"
             placeholder="Imię"
             name="name"
-            class="form__input"
+            class="form__input input__name"
           />
           <input
+            autocomplete="off"
             type="text"
             placeholder="E-mail"
             name="email"
-            class="form__input"
+            class="form__input input__email"
           />
           <button class="modal__button">
             Wyślij
@@ -135,6 +145,39 @@
       let blur = false;
 
       let modal = document.querySelector(".modal");
+      
+      // emailjs.send(serviceID, templateID, templateParams);
+      let form = document.querySelector("form");
+      let inputName = document.querySelector(".input__name");
+      let inputEmail = document.querySelector(".input__email");
+      let alert = document.querySelector(".alert");
+
+      form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let email = inputEmail.value;
+        let name = inputName.value;
+        let emailArray = email.split("");
+        let canSend = false;
+        if (email === "" || name === "") {
+          alert.innerText = "Wypełnij wszystkie pola";
+        } else {
+          if (!emailArray.some(char => char === "@")) {
+            alert.innerText = "Podaj poprawny email";
+          } else {
+            var serviceID = "croadesigners_gmail_com";
+      var templateID = "template_lhD9Z1Tx";
+      var templateParams = {
+        name: name,
+        message: email
+        
+      };
+      // emailjs.send(serviceID, templateID, templateParams);
+      console.log('ok')
+    
+          }
+        }
+      });
 
       subscribeButton.forEach(function(el) {
         el.addEventListener("click", function() {
@@ -153,6 +196,8 @@
         } else {
           body.style.filter = "blur(0px)";
           modal.style.display = "none";
+          inputEmail.value = ''
+          inputName.value = ''
         }
       });
     </script>
