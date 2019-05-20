@@ -12,7 +12,7 @@ body {
   -webkit-transition: all 1s;
   -o-transition: all 1s;
   transition: all 1s;
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -37,14 +37,14 @@ hr {
   width: 100%;
   z-index: -1;
   background-position-y: -70px;
-  max-width: 1300px;
+  max-width: 1600px;
 }
 
 .background__blur {
   background: rgba(1, 1, 17, 0.74);
   height: 730px;
   width: 100%;
-  max-width: 1300px;
+  max-width: 1600px;
 }
 .main {
   color: rgb(231, 231, 231);
